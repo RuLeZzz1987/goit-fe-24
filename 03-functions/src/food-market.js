@@ -1,32 +1,15 @@
-'use strict';
 
-const food = ['🍟', '🍔', '🌭'];
-const drinks = ['🍺', '🥤', '☕'];
 
-// const chooseFood = (foodType) => {
-//   if (foodType === 'burger') {
-//     return '🍔';
-//   }
-//
-//   if (foodType === 'hotDog') {
-//     return '🌭';
-//   }
-//
-//   return '🍟';
-// }
+const obj = { foo: 123 };
 
-const chooseFood = (foodType) => foodType === 'burger' ? '🍔' : foodType === 'hotDog' ? '🌭' : '🍟';
-
-const withDrink = (...args) => {
-  if (args[0] === 'beer') {
-    return `chosen ${args[1]} with 🍺`;
-  }
-
-  if (args[0] === 'cola') {
-    return `chosen ${args[1]} with 🥤`;
-  }
-
-  return `chosen ${args[1]} with ☕`;
+const func = function(obj) {
+  obj = { foo: 5 };
 }
 
-console.log(withDrink('beer', chooseFood('IDontKnow')));
+func();
+
+for (var i = 0; i < 10; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+console.log(i);

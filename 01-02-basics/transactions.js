@@ -18,7 +18,7 @@ const Transaction = {
 
 const account = {
   // Текущий баланс счета
-  balance: 0,
+  balance: 999990,
   nextId: 400,
 
   getNextId() {
@@ -34,7 +34,7 @@ const account = {
    * Метод создает и возвращает объект транзакции.
    * Принимает сумму и тип транзакции.
    */
-  createTransaction(amount, type) {
+  createTransaction({amount, type}) {
     return {
       id: this.getNextId(),
       amount,
@@ -49,7 +49,7 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+    const transaction = this.createTransaction({amount, type: Transaction.DEPOSIT});
     this.balance += amount;
     this.transactionsList.push(transaction);
     this.transactionsMap[transaction.id] = transaction;
@@ -65,7 +65,7 @@ const account = {
    * о том, что снятие такой суммы не возможно, недостаточно средств.
    */
   withdraw(amount) {
-    const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
+    const transaction = this.createTransaction({amount, type:Transaction.WITHDRAW});
     if (amount > this.balance) {
       console.error('Naf-Naf Minerals!');
       return;
@@ -122,3 +122,15 @@ account.deposit(300)
 console.log(account.getTransactionTotal('unknown'))
 console.log(account.getTransactionTotal(Transaction.DEPOSIT));
 console.log(account.getTransactionDetails(401));
+
+
+const otherAccount = {
+  balance: 1230,
+  nextId: 400,
+  transactionsList: [],
+  transactionsMap: {},
+}
+
+account.getBalance.call(otherAccount);
+
+console.log(otherAccount);

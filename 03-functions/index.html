@@ -11,6 +11,18 @@
 <!--<script src="./src/find-longest-word.js"></script>-->
 <!--<script src="./src/transform-to-snake-case.js"></script>-->
 <!--<script src="./src/put-to-fridge.js"></script>-->
-<script src="./src/food-market.js"></script>
+<!--<script src="./src/food-market.js"></script>-->
+<button id="clicker-id">
+    Click Me
+</button>
+
+<script>
+    window['clicker-id'].addEventListener('click', function (evt) {
+      console.log(arguments);
+      console.log(this);
+    })
+</script>
+
+
 </body>
 </html>
